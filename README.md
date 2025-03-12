@@ -224,3 +224,13 @@ Here is our **result**:
 Our **Observed Difference in Rating** (With Meat - Without Meat) is **-0.0188**.
 We then get **p-value** of **0.0**, which is less than **0.05**.
 As a result, we **reject** the null hypothesis and conclude that people rate recipes with meat in their tag lower than recipes without meat in their tag.
+
+## Framing a Prediction Problem
+We used a Random Forest Classifier with two parameters in the baseline model. 
+We used `contains_meat` and `minutes` columns. `contains_meat` is the column we made to test whether the tags containing meat will affect rating in the hypothesis test. It's nominal. We transformed the values True to 1 and False to 0. `minutes` column is a continuous, numerical variable in the dataframe. So we choose it to be the feature in the baseline model. We used StandardScaler() to standardize the data. We splited the data into training set, which contains 80% of the data and test set, which contains 20% of the data. train_test_split from the sklearn library is used to achieve this goal. 
+
+Our result is the following:
+accuracy: 0.5914066217961792
+f1_score: 0.14865003417634998
+
+We believe that there're a lot for us to improve in the final model. Our baseline model is a basic model. The correlation between 'contains_meat' and 'rating' is not that obvious. We are going to add more features into the model. 
